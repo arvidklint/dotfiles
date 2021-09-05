@@ -29,21 +29,39 @@ local use = packer.use
 packer.startup(function()
   use { 'wbthomason/packer.nvim', opt = true }
 
-  -- use 'airblade/vim-rooter'
+  -- colorschemes
+  use 'sainnhe/gruvbox-material'
+  use 'sainnhe/everforest'
+  use 'mhartington/oceanic-next'
 
-  use 'nanotech/jellybeans.vim'
-  use 'ayu-theme/ayu-vim'
-  use 'danilo-augusto/vim-afterglow'
-  use 'sheerun/vim-polyglot'
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   run = ':TSUpdate',
-  --   config = require('config.treesitter').config
-  -- }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = require('config.treesitter').config
+  }
 
-  use { 
+  -- Language Server Protocol (LSP)
+  use {
+    'neovim/nvim-lspconfig',
+    config = require('config.lsp').config
+  }
+  use {
+    'kabouzeid/nvim-lspinstall'
+  }
+  use {
+    'ray-x/lsp_signature.nvim'
+  }
+  use {
+    'folke/trouble.nvim',
+    config = function()
+      require('config.trouble').config()
+    end,
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
+
+  use {
     'nvim-telescope/telescope.nvim',
-    config = function() 
+    config = function()
       require('config.telescope').setup()
       require('config.telescope').config()
     end,
@@ -51,21 +69,20 @@ packer.startup(function()
   }
 
   use {
-    'nvim-lua/completion-nvim',
-    config = require('config.completion').setup
-  }
-
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release',
-    config= require('config.coc').config
-  }
-
-  use {
-    'glepnir/galaxyline.nvim', 
+    'glepnir/galaxyline.nvim',
     branch = 'main',
     config = function() require('config.statusline') end,
     requires = { 'kyazdani42/nvim-web-devicons' }
+  }
+
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/vim-vsnip'},
+    },
+    config = require('config.cmp').config
   }
 
   use {
@@ -75,14 +92,14 @@ packer.startup(function()
   }
 
   use 'tpope/vim-commentary'
-  -- use 'jiangmiao/auto-pairs'
+  use 'jiangmiao/auto-pairs'
 
   use {
     'tpope/vim-fugitive',
     config = function() require('config.fugitive') end,
   }
 
-  use { 
+  use {
     'lewis6991/gitsigns.nvim',
     config = require('config.gitsigns').setup,
     requires = {'nvim-lua/plenary.nvim'}
@@ -95,39 +112,52 @@ packer.startup(function()
     end
   }
 
-  use { 'svermeulen/vim-yoink' }
-
   use {
     'mhinz/vim-startify',
-    config = function()
-      require('config.startify').config()
-    end
+    config = function() require('config.startify').config() end
   }
 
   use 'editorconfig/editorconfig-vim'
 
-  -- use {
-  --   'haya14busa/incsearch.vim',
-  --   config = function()
-  --     require('config.incsearch').setup()
-  --   end
-  -- }
+  use {
+    'phaazon/hop.nvim',
+    as = 'hop',
+    config = function()
+      require('config.hop').config()
+    end
+  }
 
-  -- use {
-  --   'easymotion/vim-easymotion',
-  --   config = function() require('config.easymotion') end
-  -- }
-  use { 'justinmk/vim-sneak' }
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      require('which-key').setup()
+    end
+  }
 
-  -- Lua
-  use 'euclidianAce/BetterLua.vim'
+  use {
+    'mfussenegger/nvim-dap',
+    config = function()
+      require('config.dap').config()
+    end
+  }
 
-  use { '~/dev/neovim/pastry.nvim' }
-
+  use {
+    'voldikss/vim-floaterm',
+    config = function() require('config.floaterm').config() end
+  }
 end)
 
+-- automatically remove trailing whitespace on save
+require('trim-whitespace')()
+
 vim.o.termguicolors = true
-cmd 'colorscheme afterglow'
+vim.g.everforest_background = 'hard'
+vim.g.everforest_sign_column_background = 'none'
+vim.g.everforest_ui_contrast = 'high'
+vim.g.everforest_show_eob = false
+vim.o.background = 'dark'
+
+cmd 'colorscheme everforest'
 
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -184,18 +214,19 @@ opt.smartindent = true -- Insert indents automatically
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.softtabstop = 2
 -- vim.o.shiftround = true -- Round indent
-vim.o.joinspaces = false -- No double spaces with join after a dotset 
+vim.o.joinspaces = false -- No double spaces with join after a dotset
 
 vim.o.clipboard = 'unnamedplus'
 vim.wo.signcolumn = 'yes'
 
-vim.o.completeopt = 'menuone,noinsert,noselect' -- Completion options
+vim.o.completeopt = 'menuone,noselect,preview' -- Completion options
+vim.o.pumheight = 10
 
 vim.o.cmdheight = 2
+vim.o.cursorline = true -- highlight current line
 
 -- Mappings
 local map = utils.map
-
 
 -- Move selected line / block of text in visual mode
 -- shift + k to move up

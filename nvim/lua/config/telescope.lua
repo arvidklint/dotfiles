@@ -56,11 +56,12 @@ function M.setup()
 
     utils.map('n', '<Leader>fb', '<cmd>lua __telescope_buffers()<CR>')
     utils.map('n', '<C-p>', '<cmd>lua __telescope_files()<CR>')
+    utils.map('n', '<Leader><Leader>', '<cmd>lua __telescope_files()<CR>')
     utils.map('n', '<Leader>ff', '<cmd>lua __telescope_files()<CR>')
     utils.map('n', '<Leader>fg', '<cmd>lua __telescope_grep()<CR>')
     utils.map(
-      'n', 
-      '<Leader>fh', 
+      'n',
+      '<Leader>fh',
       "<cmd>lua require('telescope.builtin').help_tags(options)<CR>"
     )
     utils.map('n', '<Leader>fc', '<cmd>lua __telescope_commits()<CR>')
@@ -83,10 +84,12 @@ function M.config()
                 ["<C-k>"] = actions.move_selection_previous,
               }
             },
-            file_ignore_patterns = {"%.jpg", "%.jpeg", "%.png", "%.svg", "%.otf", "%.ttf"},
+            file_ignore_patterns = {
+              "%.jpg", "%.jpeg", "%.png", "%.svg", "%.otf", "%.ttf",
+              "node_modules/", ".git/"
+            },
         }
     }
 end
 
 return M
-

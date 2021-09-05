@@ -2,7 +2,7 @@ local utils = require('config.utils')
 
 local M = {}
 
-M.config = function()
+function M.config()
   vim.g.startify_change_to_vcs_root = 1
   vim.g.startify_session_persistence = 1
   vim.g.startify_files_number = 5
