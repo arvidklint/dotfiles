@@ -1,5 +1,7 @@
 #!/bin/bash
 
-# oh-my-zsh
-sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'
+# install starship prompt
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
+# link all files
+. ./link.sh

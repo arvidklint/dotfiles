@@ -1,6 +1,10 @@
-ln -sv '~/dotfiles/zsh/.zshrc' '~'
-ln -sv '~/dotfiles/zsh/dots.zsh-theme' '~/.oh-my-zsh/custom/themes'
-ln -sv '~/dotfiles/nvim/init.vim' '~/.config/nvim/'
-ln -sv '~/dotfiles/tmux/.tmux.conf' '~'
-ln -sv '~/dotfiles/doom.d' '~/.doom.d'
+mkdir -p ~/.config
 
+ln -sv ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+
+# bash/starship
+ln -sv ~/dotfiles/bash/.bashrc ~/.bashrc
+ln -sv ~/dotfiles/bash/starship.toml ~/.config/starship.toml
+
+# Link all nvim files
+(cd ~/dotfiles/nvim && . ./install.sh)
