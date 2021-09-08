@@ -6,14 +6,17 @@
 alias ll='ls -alF --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
+alias ls='ls -CF --color'
 
 alias ta='tmux attach-session -t'
 alias ts='tmux ls'
 alias tk='tmux kill-session -t'
+alias tn='tmux new-session -s'
 
 alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
+alias n='nvim'
 
 export EDITOR='nvim'
 
