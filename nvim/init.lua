@@ -145,6 +145,11 @@ packer.startup(function()
     'voldikss/vim-floaterm',
     config = function() require('config.floaterm').config() end
   }
+
+  use {
+    'mtth/scratch.vim',
+    config = function() require('config.scratch').config() end
+  }
 end)
 
 -- automatically remove trailing whitespace on save
@@ -160,7 +165,7 @@ vim.o.background = 'dark'
 cmd 'colorscheme everforest'
 
 vim.wo.number = true
-vim.wo.relativenumber = true
+-- vim.wo.relativenumber = true
 
 local opts_info = vim.api.nvim_get_all_options_info()
 local opt = setmetatable({}, {
