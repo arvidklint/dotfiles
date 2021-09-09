@@ -2,7 +2,7 @@ function trim()
   local save = vim.fn.winsaveview()
   local patterns = {
     [[%s/\s\+$//e]],
-    [[%s/\($\n\s*\)\+\%$/\r/]],
+    -- [[%s/\($\n\s*\)\+\%$//]],
     [[%s/\%^\n\+//]],
     [[%s/\(\n\n\)\n\+/\1/]],
   }
