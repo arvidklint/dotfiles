@@ -1,11 +1,12 @@
 function trim()
-  local save = vim.fn.winsaveview() 
+  local save = vim.fn.winsaveview()
   local patterns = {
     [[%s/\s\+$//e]],
-    [[%s/\($\n\s*\)\+\%$//]],
+    [[%s/\($\n\s*\)\+\%$/\r/]],
     [[%s/\%^\n\+//]],
     [[%s/\(\n\n\)\n\+/\1/]],
   }
+
   for _, v in pairs(patterns) do
     vim.api.nvim_exec(string.format("silent! %s", v), false)
   end
@@ -15,3 +16,4 @@ end
 return function()
   vim.cmd [[au BufWrite * lua trim()]]
 end
+
