@@ -86,7 +86,7 @@ function M.config()
             },
             file_ignore_patterns = {
               "%.jpg", "%.jpeg", "%.png", "%.svg", "%.otf", "%.ttf",
-              "node_modules/", ".git/"
+              "node_modules/", ".git/", "dist/"
             },
         }
     }

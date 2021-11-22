@@ -33,6 +33,14 @@ packer.startup(function()
   use 'sainnhe/gruvbox-material'
   use 'sainnhe/everforest'
   use 'mhartington/oceanic-next'
+  use {
+    'ellisonleao/gruvbox.nvim',
+    requires = {'rktjmp/lush.nvim'}
+  }
+  use {
+    'metalelf0/jellybeans-nvim',
+    requires = {'rktjmp/lush.nvim'}
+  }
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -58,6 +66,28 @@ packer.startup(function()
     end,
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
+  use {
+    'glepnir/lspsaga.nvim'
+  }
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/vim-vsnip'},
+      {'hrsh7th/cmp-path'},
+      {'hrsh7th/cmp-cmdline'}
+    },
+    config = require('config.cmp').config
+  }
+
+  -- use {
+  --   'neoclide/coc.nvim',
+  --   branch ='release',
+  --   config = function()
+  --     require('config.coc').config()
+  --   end,
+  -- }
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -69,20 +99,12 @@ packer.startup(function()
   }
 
   use {
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
-    config = function() require('config.statusline') end,
-    requires = { 'kyazdani42/nvim-web-devicons' }
-  }
-
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/vim-vsnip'},
-    },
-    config = require('config.cmp').config
+    'NTBBloodbath/galaxyline.nvim',
+    config = function()
+      require('config.statusline')
+      -- require('galaxyline.themes.eviline')
+    end,
+    requiers = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
   use {
@@ -92,7 +114,7 @@ packer.startup(function()
   }
 
   use 'tpope/vim-commentary'
-  use 'jiangmiao/auto-pairs'
+  -- use 'jiangmiao/auto-pairs'
 
   use {
     'tpope/vim-fugitive',
@@ -162,7 +184,9 @@ vim.g.everforest_ui_contrast = 'high'
 vim.g.everforest_show_eob = false
 vim.o.background = 'dark'
 
-cmd 'colorscheme everforest'
+vim.g.gruvbox_contrast_dark = 'hard'
+
+cmd 'colorscheme gruvbox'
 
 vim.wo.number = true
 -- vim.wo.relativenumber = true
@@ -224,7 +248,7 @@ vim.o.joinspaces = false -- No double spaces with join after a dotset
 vim.o.clipboard = 'unnamedplus'
 vim.wo.signcolumn = 'yes'
 
-vim.o.completeopt = 'menuone,noselect,preview' -- Completion options
+vim.o.completeopt = 'menu,menuone,noselect' -- Completion options
 vim.o.pumheight = 10
 
 vim.o.cmdheight = 2
@@ -254,8 +278,8 @@ map('n', '<C-u>', '<C-u>zz')
 
 map('n', '<Leader>s', ':%s/<C-r><C-w>//g<Left><Left>')
 
-map('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true })
-map('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true })
+-- map('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true })
+-- map('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true })
 map('i', '<C-j>', 'pumvisible() ? "<C-n>" : "<C-j>"', { expr = true })
 map('i', '<C-k>', 'pumvisible() ? "<C-p>" : "<C-k>"', { expr = true })
 

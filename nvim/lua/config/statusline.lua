@@ -106,7 +106,7 @@ gls.left[1] = {
                 [115] = 'SELECT',
                 [83] = 'S-LINE'
             }
-            vim.api.nvim_command('hi GalaxyViMode guibg=' .. mode_color())
+            -- vim.api.nvim_command('hi GalaxyViMode guibg=' .. mode_color())
             alias = aliases[vim.fn.mode():byte()]
             local mode = ""
             if alias ~= nil then
@@ -128,7 +128,7 @@ gls.left[2] = {
         provider = {function() return '  ' end, 'FileIcon'},
         condition = buffer_not_empty,
         highlight = {
-            require('galaxyline.provider_fileinfo').get_file_icon,
+            require('galaxyline.providers.fileinfo').get_file_icon,
             colors.section_bg
         }
     }
@@ -213,7 +213,7 @@ gls.right[5] = {
     GitIcon = {
         provider = function() return '  ' end,
         condition = buffer_not_empty and
-            require('galaxyline.provider_vcs').check_git_workspace,
+            require('galaxyline.providers.vcs').check_git_workspace,
         highlight = {colors.middlegrey, colors.bg}
     }
 }
@@ -247,7 +247,7 @@ gls.short_line_left[1] = {
         provider = {function() return '  ' end, 'FileIcon'},
         condition = buffer_not_empty,
         highlight = {
-            require('galaxyline.provider_fileinfo').get_file_icon,
+            require('galaxyline.providers.fileinfo').get_file_icon,
             colors.section_bg
         }
     }
