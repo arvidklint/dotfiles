@@ -2,33 +2,33 @@ local M = {}
 
 function M.config()
   local lspconfig = require('lspconfig')
-  local lspinstall = require('lspinstall')
+  local lsp_installer = require('nvim-lsp-installer')
 
-  lspinstall.setup()
+  lsp_installer.on_server_ready(function(server)
+    local utils = require('config.utils')
 
-  local on_attach = function(client, bufnr)
-    -- local utils = require('config.utils')
+    utils.bmap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    utils.bmap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    utils.bmap(bufnr, 'n', 'F', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 
-    -- utils.bmap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-    -- utils.bmap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    -- utils.bmap(bufnr, 'n', 'F', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
 
     require('lsp_signature').on_attach()
-  end
 
-  local servers = lspinstall.installed_servers()
-
-  for _, lsp in ipairs(servers) do
     local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-    lspconfig[lsp].setup {
-      on_attach = on_attach,
+    local opts = {
       capabilities = cmp_capabilities,
       flags = {
         debounce_text_changes = 150,
       }
     }
-  end
+    -- This setup() function is exactly the same as lspconfig's setup function.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+  end)
 end
 
 return M

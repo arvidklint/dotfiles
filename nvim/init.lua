@@ -54,7 +54,7 @@ packer.startup(function()
     config = require('config.lsp').config
   }
   use {
-    'kabouzeid/nvim-lspinstall'
+    'williamboman/nvim-lsp-installer'
   }
   use {
     'ray-x/lsp_signature.nvim'
@@ -256,6 +256,9 @@ vim.o.cursorline = true -- highlight current line
 
 -- Mappings
 local map = utils.map
+
+-- Reload config
+map('n', '<leader>rc', ':source $MYVIMRC<CR>')
 
 -- Move selected line / block of text in visual mode
 -- shift + k to move up
