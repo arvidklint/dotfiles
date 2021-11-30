@@ -22,17 +22,14 @@ packer.startup(function()
   use { 'wbthomason/packer.nvim' }
 
   -- colorschemes
-  use 'sainnhe/gruvbox-material'
   use 'sainnhe/everforest'
-  use 'mhartington/oceanic-next'
   use {
     'ellisonleao/gruvbox.nvim',
     requires = {'rktjmp/lush.nvim'}
   }
-  use {
-    'metalelf0/jellybeans-nvim',
-    requires = {'rktjmp/lush.nvim'}
-  }
+  use { 'mangeshrex/uwu.vim' }
+  use { 'jacoborus/tender.vim' }
+  use { 'srcery-colors/srcery-vim' }
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -51,6 +48,7 @@ packer.startup(function()
   use {
     'ray-x/lsp_signature.nvim'
   }
+
   use {
     'folke/trouble.nvim',
     config = function()
@@ -94,12 +92,11 @@ packer.startup(function()
   }
 
   use {
-    'NTBBloodbath/galaxyline.nvim',
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = function()
-      require('config.statusline')
-      -- require('galaxyline.themes.eviline')
-    end,
-    requiers = { 'kyazdani42/nvim-web-devicons', opt = true }
+      require('config.statusline').config()
+    end
   }
 
   use {
@@ -184,7 +181,7 @@ vim.o.background = 'dark'
 
 vim.g.gruvbox_contrast_dark = 'hard'
 
-cmd 'colorscheme gruvbox'
+cmd 'colorscheme srcery'
 
 vim.wo.number = true
 -- vim.wo.relativenumber = true
