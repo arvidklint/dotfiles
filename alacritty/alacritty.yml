@@ -1,17 +1,14 @@
-env:
-  TERM: alacritty
-
 window:
   dimensions:
     columns: 0
     lines: 0
   padding:
-    x: 16
-    y: 16
+    x: 12
+    y: 12
 
-  dynamic_padding: false
+  dynamic_padding: true
 
-  decorations: full # full|none
+  decorations: none # full|none
 
   startup_mode: Maximized # Windowes|Maximized|Fullscreen|(macOS SimpleFullscreen)
 
@@ -24,88 +21,137 @@ scrolling:
   multiplier: 3
 
 font:
-  #normal:
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
-
-  # Bold font face
-  #bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
-
-  # Italic font face
-  #italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Italic
-
-  # Bold italic font face
-  #bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+  normal:
+    family: 'DejaVuSansMono Nerd Font Mono'
 
   size: 12.0
 
-  #offset:
-  #  x: 0
-  #  y: 0
+  offset:
+    x: 1
+    y: 6
 
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
+  glyph_offset:
+    x: 0
+    y: 3
+
+# Color schemes
+schemes:
+  uwu: &uwu
+    primary:
+      background: '#131A1C'
+      foreground: '#C5C8C9'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '#d6d6d6'
+      cursor: '#232a2c'
+
+    # Normal colors
+    normal:
+      black:   '#1b2224'
+      red:     '#f65b5b'
+      green:   '#6bb05d'
+      yellow:  '#e59e67'
+      blue:    '#53A7BF'
+      magenta: '#bb8fe5'
+      cyan:    '#51a39f'
+      white:   '#c4c4c4'
+
+    # Bright colors
+    bright:
+      black:   '#232a2c'
+      red:     '#c26f6f'
+      green:   '#8dc776'
+      yellow:  '#e7ac7e'
+      blue:    '#6CBAD1'
+      magenta: '#b185db'
+      cyan:    '#6db0ad'
+      white:   '#cecece'
+
+  tender: &tender
+    primary:
+      background: '#282828'
+      foreground: '#eeeeee'
+
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#f43753'
+      green:   '#c9d05c'
+      yellow:  '#ffc24b'
+      blue:    '#b3deef'
+      magenta: '#d3b987'
+      cyan:    '#73cef4'
+      white:   '#eeeeee'
+
+    # Bright colors
+    bright:
+      black:   '#4c4c4c'
+      red:     '#f43753'
+      green:   '#c9d05c'
+      yellow:  '#ffc24b'
+      blue:    '#b3deef'
+      magenta: '#d3b987'
+      cyan:    '#73cef4'
+      white:   '#feffff'
+
+  everforest_dark_hard: &everforest_dark_hard
+    primary:
+      background: '#2b3339'
+      foreground: '#d3c6aa'
+    normal:
+      black:   '#4b565c'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+    bright:
+      black:   '#4b565c'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+
+  srcery: &srcery
+    primary:
+      background: '#1c1b19'
+      foreground: '#fce8c3'
+
+    # Cursor colors
+    cursor:
+      text: CellBackground
+      cursor: '#fbb829'
+
+    # Normal colors
+    normal:
+      black:   '#1c1b19'
+      red:     '#ef2f27'
+      green:   '#519f50'
+      yellow:  '#fbb829'
+      blue:    '#2c78bf'
+      magenta: '#e02c6d'
+      cyan:    '#0aaeb3'
+      white:   '#baa67f'
+
+    # Bright colors
+    bright:
+      black:   '#918175'
+      red:     '#f75341'
+      green:   '#98bc37'
+      yellow:  '#fed06e'
+      blue:    '#68a8e4'
+      magenta: '#ff5c8f'
+      cyan:    '#2be4d0'
+      white:   '#fce8c3'
 
 # Colors (Tender)
-colors:
-  # Default colors
-  primary:
-    background: '#282828'
-    foreground: '#eeeeee'
-
-  # Normal colors
-  normal:
-    black:   '#282828'
-    red:     '#f43753'
-    green:   '#c9d05c'
-    yellow:  '#ffc24b'
-    blue:    '#b3deef'
-    magenta: '#d3b987'
-    cyan:    '#73cef4'
-    white:   '#eeeeee'
-
-  # Bright colors
-  bright:
-    black:   '#4c4c4c'
-    red:     '#f43753'
-    green:   '#c9d05c'
-    yellow:  '#ffc24b'
-    blue:    '#b3deef'
-    magenta: '#d3b987'
-    cyan:    '#73cef4'
-    white:   '#feffff'
-
+colors: *srcery
 
 selection:
   save_to_clipboard: true
@@ -115,8 +161,8 @@ cursor:
 
 live_config_reload: true
 
-shell:
-  program: /bin/zsh
+# shell:
+#   program: /bin/zsh
 
 mouse:
   double_click: { threshold: 300 }
