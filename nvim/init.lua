@@ -10,24 +10,16 @@ end
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
 
--- Install packer
-local execute = vim.api.nvim_command
-
-local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
-
+-- Bootstrap packer
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-  execute 'packadd packer.nvim'
+  Packer_Bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
-
-execute 'packadd packer.nvim'
-cmd [[packadd packer.nvim]]
-cmd [[autocmd BufWritePost init.lua PackerCompile]]
 
 local packer = require('packer')
 local use = packer.use
 packer.startup(function()
-  use { 'wbthomason/packer.nvim', opt = true }
+  use { 'wbthomason/packer.nvim' }
 
   -- colorschemes
   use 'sainnhe/gruvbox-material'
@@ -74,11 +66,14 @@ packer.startup(function()
     requires = {
       {'hrsh7th/cmp-buffer'},
       {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/vim-vsnip'},
       {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-cmdline'}
+      {'hrsh7th/cmp-cmdline'},
+      {'onsails/lspkind-nvim'},
+      {'saadparwaiz1/cmp_luasnip'}
     },
-    config = require('config.cmp').config
+    config = function()
+      require('config.nvim_cmp').config()
+    end
   }
 
   -- use {
@@ -164,14 +159,17 @@ packer.startup(function()
   }
 
   use {
-    'voldikss/vim-floaterm',
-    config = function() require('config.floaterm').config() end
+    'L3MON4D3/LuaSnip'
   }
 
   use {
     'mtth/scratch.vim',
     config = function() require('config.scratch').config() end
   }
+
+  if Packer_Bootstrap then
+    require('packer').sync()
+  end
 end)
 
 -- automatically remove trailing whitespace on save
