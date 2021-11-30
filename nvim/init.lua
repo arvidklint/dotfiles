@@ -74,14 +74,6 @@ packer.startup(function()
     end
   }
 
-  -- use {
-  --   'neoclide/coc.nvim',
-  --   branch ='release',
-  --   config = function()
-  --     require('config.coc').config()
-  --   end,
-  -- }
-
   use {
     'nvim-telescope/telescope.nvim',
     config = function()
