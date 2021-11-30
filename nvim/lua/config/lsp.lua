@@ -3,10 +3,16 @@ local M = {}
 function M.config()
   local utils = require('config.utils')
   utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  utils.map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
   utils.map('n', 'F', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 
   local lsp_installer = require('nvim-lsp-installer')
+
+  local saga = require('lspsaga')
+  saga.init_lsp_saga()
+  utils.map('n', '<Leader>ca', '<cmd>Lspsaga code_action<cr>')
+  utils.map('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
+  utils.map('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<cr>')
+  utils.map('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<cr>')
 
   lsp_installer.on_server_ready(function(server)
     require('lsp_signature').on_attach()

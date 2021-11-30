@@ -31,4 +31,10 @@ function M.cwd_name()
   return vim.fn.getcwd():match([[[%w%.-_]+$]])
 end
 
+function M.reload_config()
+  print('reloading config...')
+  vim.cmd(':source $MYVIMRC')
+  vim.cmd(':PackerCompile')
+end
+
 return M

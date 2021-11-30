@@ -57,7 +57,8 @@ packer.startup(function()
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
   use {
-    'glepnir/lspsaga.nvim'
+    'tami5/lspsaga.nvim',
+    branch = 'nvim51'
   }
   use {
     'hrsh7th/nvim-cmp',
@@ -245,7 +246,7 @@ vim.o.cursorline = true -- highlight current line
 local map = utils.map
 
 -- Reload config
-map('n', '<leader>rc', ':source $MYVIMRC<CR>')
+map('n', '<leader>rc', ':lua require("config.utils").reload_config()<CR>')
 
 -- Move selected line / block of text in visual mode
 -- shift + k to move up
