@@ -174,7 +174,7 @@ vim.o.background = 'dark'
 
 vim.g.gruvbox_contrast_dark = 'hard'
 
-cmd 'colorscheme srcery'
+cmd 'colorscheme gruvbox'
 
 vim.wo.number = true
 -- vim.wo.relativenumber = true
