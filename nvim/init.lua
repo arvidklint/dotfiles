@@ -58,7 +58,6 @@ packer.startup(function()
   }
   use {
     'tami5/lspsaga.nvim',
-    branch = 'nvim51'
   }
   use {
     'hrsh7th/nvim-cmp',
@@ -156,6 +155,8 @@ packer.startup(function()
     'mtth/scratch.vim',
     config = function() require('config.scratch').config() end
   }
+
+  use { '~/dotfiles/buffer_switcher' }
 
   if Packer_Bootstrap then
     require('packer').sync()
@@ -259,10 +260,10 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
-map('n', '<left>', '<C-w>h')
-map('n', '<down>', '<C-w>j')
-map('n', '<up>', '<C-w>k')
-map('n', '<right>', '<C-w>l')
+-- map('n', '<left>', '<C-w>h')
+-- map('n', '<down>', '<C-w>j')
+-- map('n', '<up>', '<C-w>k')
+-- map('n', '<right>', '<C-w>l')
 
 map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
