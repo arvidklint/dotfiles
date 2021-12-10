@@ -20,14 +20,12 @@ function M.config()
       ['<C-j>'] = cmp.mapping.select_next_item(),
       ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<CR>'] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       },
 
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           }
         elseif luasnip.expand_or_locally_jumpable() then

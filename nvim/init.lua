@@ -76,6 +76,13 @@ packer.startup(function()
   }
 
   use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup()
+    end
+  }
+
+  use {
     'nvim-telescope/telescope.nvim',
     config = function()
       require('config.telescope').setup()
@@ -99,7 +106,6 @@ packer.startup(function()
   }
 
   use 'tpope/vim-commentary'
-  -- use 'jiangmiao/auto-pairs'
 
   use {
     'tpope/vim-fugitive',
