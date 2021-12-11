@@ -11,6 +11,7 @@ function M.config()
   saga.init_lsp_saga()
   utils.map('n', '<Leader>ca', '<cmd>Lspsaga code_action<cr>')
   utils.map('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
+  utils.map('n', '<Leader>cd', '<cmd>Lspsaga show_line_diagnostics<cr>')
   utils.map('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<cr>')
   utils.map('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<cr>')
 
