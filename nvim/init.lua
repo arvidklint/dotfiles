@@ -30,6 +30,7 @@ packer.startup(function()
   use { 'mangeshrex/uwu.vim' }
   use { 'jacoborus/tender.vim' }
   use { 'srcery-colors/srcery-vim' }
+  use { 'folke/tokyonight.nvim' }
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -174,7 +175,9 @@ vim.o.background = 'dark'
 
 vim.g.gruvbox_contrast_dark = 'hard'
 
-cmd 'colorscheme gruvbox'
+vim.g.tokyonight_style = 'night'
+
+cmd 'colorscheme tokyonight'
 
 vim.wo.number = true
 -- vim.wo.relativenumber = true
