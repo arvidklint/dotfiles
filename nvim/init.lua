@@ -22,14 +22,15 @@ packer.startup(function()
   use { 'wbthomason/packer.nvim' }
 
   -- colorschemes
-  use 'sainnhe/everforest'
+  use { 'sainnhe/everforest', opt = true }
   use {
     'ellisonleao/gruvbox.nvim',
-    requires = {'rktjmp/lush.nvim'}
+    requires = {'rktjmp/lush.nvim'},
+    opt = true
   }
-  use { 'mangeshrex/uwu.vim' }
-  use { 'jacoborus/tender.vim' }
-  use { 'srcery-colors/srcery-vim' }
+  use { 'mangeshrex/uwu.vim', opt = true }
+  use { 'jacoborus/tender.vim', opt = true }
+  use { 'srcery-colors/srcery-vim', opt = true }
   use { 'folke/tokyonight.nvim' }
 
   use {
@@ -57,10 +58,7 @@ packer.startup(function()
     end,
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
-  use {
-    'tami5/lspsaga.nvim',
-    branch = 'nvim51'
-  }
+  use { 'tami5/lspsaga.nvim' }
   use {
     'hrsh7th/nvim-cmp',
     requires = {

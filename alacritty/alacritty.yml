@@ -24,15 +24,15 @@ font:
   normal:
     family: 'DejaVuSansMono Nerd Font Mono'
 
-  size: 12.0
+  size: 14.0
 
   offset:
-    x: 1
-    y: 6
+    x: 0
+    y: 0
 
   glyph_offset:
     x: 0
-    y: 3
+    y: 0
 
 # Color schemes
 schemes:
@@ -187,7 +187,8 @@ schemes:
 
     # Normal colors
     normal:
-      black:   '#15161E'
+      # black:   '#15161E' # Original color
+      black:   '#1a1b26'
       red:     '#f7768e'
       green:   '#9ece6a'
       yellow:  '#e0af68'
