@@ -1,0 +1,9 @@
+session_name: dotfiles
+start_directory: ~/dotfiles
+windows:
+  - window_name: DOTFILES
+    panes:
+      - shell_command:
+        - nvim
+  - window_name: TERMINAL
+

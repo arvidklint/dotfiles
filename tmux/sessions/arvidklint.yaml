@@ -1,0 +1,13 @@
+session_name: arvidklint
+start_directory: ~/dev/arvidklint.com
+windows:
+  - window_name: EDITOR
+    panes:
+      - shell_command:
+        - nvim
+  - window_name: SERVER
+    panes:
+      - shell_command:
+        - nvm use
+        - npm run dev
+

@@ -1,0 +1,19 @@
+session_name: veraklint
+start_directory: ~/dev/veraklint.com
+windows:
+- window_name: EDITOR
+  panes:
+  - shell_command:
+    - nvim
+- window_name: SERVERS
+  layout: even-horizontal
+  panes:
+  - shell_command:
+    - cd server
+    - nvm use
+    - npm run serve
+  - shell_command:
+    - cd client
+    - nvm use
+    - npm run serve
+
