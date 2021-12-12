@@ -3,7 +3,6 @@ local M = {}
 function M.config()
   local lualine = require('lualine')
 
-  print('lualine setup')
   lualine.setup({
     options = {
       component_separators = { left = '»', right = '«' }
