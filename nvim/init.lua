@@ -162,6 +162,14 @@ packer.startup(function()
     config = function() require('config.scratch').config() end
   }
 
+  use {
+    'AckslD/nvim-neoclip.lua',
+    requires = {{'nvim-telescope/telescope.nvim'}},
+    config = function()
+      require('config.neoclip').setup()
+    end,
+  }
+
   if Packer_Bootstrap then
     require('packer').sync()
   end
