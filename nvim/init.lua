@@ -22,15 +22,15 @@ packer.startup(function()
   use { 'wbthomason/packer.nvim' }
 
   -- colorschemes
-  use { 'sainnhe/everforest', opt = true }
-  use {
-    'ellisonleao/gruvbox.nvim',
-    requires = {'rktjmp/lush.nvim'},
-    opt = true
-  }
-  use { 'mangeshrex/uwu.vim', opt = true }
-  use { 'jacoborus/tender.vim', opt = true }
-  use { 'srcery-colors/srcery-vim', opt = true }
+  -- use { 'sainnhe/everforest', opt = true }
+  -- use {
+  --   'ellisonleao/gruvbox.nvim',
+  --   requires = {'rktjmp/lush.nvim'},
+  --   opt = true
+  -- }
+  -- use { 'mangeshrex/uwu.vim', opt = true }
+  -- use { 'jacoborus/tender.vim', opt = true }
+  -- use { 'srcery-colors/srcery-vim', opt = true }
   use { 'folke/tokyonight.nvim' }
 
   use {
