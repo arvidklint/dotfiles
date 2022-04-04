@@ -47,6 +47,7 @@ function M.config()
     },
     sources = cmp.config.sources({
       { name = 'nvim_lua' },
+      { name = 'cmp_tabnine' },
       { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'buffer', keyword_length = 4 }

@@ -4,7 +4,6 @@ local M = {}
 
 function M.setup()
   require('nvim-tree').setup {
-    auto_close = true,
     diagnostics = {
       enable = true,
     },

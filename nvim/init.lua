@@ -73,6 +73,11 @@ packer.startup(function()
       require('config.nvim_cmp').config()
     end
   }
+  use {
+    'tzachar/cmp-tabnine',
+    run='./install.sh',
+    requires = 'hrsh7th/nvim-cmp'
+  }
 
   use {
     'windwp/nvim-autopairs',
