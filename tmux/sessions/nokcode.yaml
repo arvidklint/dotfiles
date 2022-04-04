@@ -1,0 +1,34 @@
+session_name: nok_code
+start_directory: ~/nok
+windows:
+  - window_name: BACKEND
+    panes:
+      - shell_command:
+        - cd matteprogrammering-api
+  - window_name: FRONTEND
+    panes:
+      - shell_command:
+        - cd matteprogrammering-front
+  - window_name: SERVERS
+    layout: even-horizontal
+    panes:
+      - shell_command:
+        - cd matteprogrammering-api
+        - nvm use
+        - . ./.docker/start.sh
+      - shell_command:
+        - cd matteprogrammering-front
+        - nvm use
+        - npm run dev
+        focus: true
+  - window_name: LOGS
+    panes:
+      - shell_command:
+        - cd matteprogrammering-api
+        - tail -f storage/logs/laravel.log
+  - window_name: TERMINAL
+    layout: even-horizontal
+    panes:
+      - shell_command: cd matteprogrammering-api
+      - shell_command: cd matteprogrammering-front
+
