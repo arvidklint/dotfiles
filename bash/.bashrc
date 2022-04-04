@@ -28,6 +28,8 @@ alias greset='git reset --soft HEAD~1 && git reset' # reset last commit and unst
 
 export EDITOR='nvim'
 
+export TMUXP_CONFIGDIR=~/dotfiles/tmux/sessions/
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
