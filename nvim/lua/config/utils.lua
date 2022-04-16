@@ -1,40 +1,44 @@
 local M = {}
 
 function M.map(mode, lhs, rhs, opts)
-    local options = {noremap = true, silent = true }
-    if opts then options = vim.tbl_extend('force', options, opts) end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 function M.bmap(bufnr, mode, lhs, rhs, opts)
-  local options = {noremap = true, silent = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, options)
 end
 
 function M.is_buffer_empty()
-    return vim.fn.empty(vim.fn.expand('%:t')) == 1
+	return vim.fn.empty(vim.fn.expand("%:t")) == 1
 end
 
 function M.has_width_gt(cols)
-    return vim.fn.winwidth(0) / 2 > cols
+	return vim.fn.winwidth(0) / 2 > cols
 end
 
 function M.add_to_table(value, str, sep)
-    sep = sep or ","
-    str = str or ""
-    value = type(value) == "table" and table.concat(value, sep) or value
-    return str ~= "" and table.concat({value, str}, sep) or value
+	sep = sep or ","
+	str = str or ""
+	value = type(value) == "table" and table.concat(value, sep) or value
+	return str ~= "" and table.concat({ value, str }, sep) or value
 end
 
 function M.cwd_name()
-  return vim.fn.getcwd():match([[[%w%.-_]+$]])
+	return vim.fn.getcwd():match([[[%w%.-_]+$]])
 end
 
 function M.reload_config()
-  print('reloading config...')
-  vim.cmd(':source $MYVIMRC')
-  vim.cmd(':PackerCompile')
+	print("reloading config...")
+	vim.cmd(":source $MYVIMRC")
+	vim.cmd(":PackerCompile")
 end
 
 return M
