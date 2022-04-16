@@ -1,0 +1,13 @@
+session_name: parking
+start_directory: ~/dev/parking-game
+windows:
+  - window_name: EDITOR
+    panes:
+      - shell_command:
+        - nvim
+  - window_name: SERVER
+    panes:
+      - shell_command:
+        - nvm use
+        - npm start
+  - window_name: TERMINAL

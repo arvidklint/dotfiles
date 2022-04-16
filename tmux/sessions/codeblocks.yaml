@@ -1,0 +1,12 @@
+session_name: codeblocks
+start_directory: ~/dev/code-blocks
+windows:
+  - window_name: EDITOR
+    panes:
+      - shell_command:
+        - nvim
+  - window_name: SERVER
+    panes:
+      - shell_command:
+        - nvm use
+        - npm run dev
