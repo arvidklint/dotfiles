@@ -64,7 +64,7 @@ function M.setup()
 	utils.map("n", "<Leader>ft", "<cmd>lua __telescope_colorscheme()<CR>")
 	utils.map("n", "<C-f>", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
 	utils.map("n", "<Leader>fr", "<cmd>lua require('telescope.builtin').registers()<CR>")
-	utils.map("n", "<Leader>v", "<cmd>lua require('telescope').extensions.neoclip['plus']()<CR>")
+	utils.map("n", "<Leader>fy", "<cmd>lua require('telescope').extensions.neoclip['plus']()<CR>")
 end
 
 function M.config()

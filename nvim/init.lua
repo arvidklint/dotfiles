@@ -36,10 +36,14 @@ packer.startup(function()
 	-- 	requires = { "rktjmp/lush.nvim" },
 	-- 	opt = true,
 	-- })
-	-- use({ "mangeshrex/uwu.vim", opt = true })
+	-- use({ "mangeshrex/everblush.vim" })
 	-- use({ "jacoborus/tender.vim", opt = true })
 	-- use({ "srcery-colors/srcery-vim", opt = true })
 	use({ "folke/tokyonight.nvim" })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -209,7 +213,7 @@ vim.g.gruvbox_contrast_dark = "hard"
 
 vim.g.tokyonight_style = "night"
 
-cmd("colorscheme tokyonight")
+cmd("colorscheme catppuccin")
 
 set.number = true
 -- set.relativenumber = true

@@ -5,6 +5,7 @@ function M.config()
 
 	lualine.setup({
 		options = {
+			theme = "catppuccin",
 			component_separators = { left = "»", right = "«" },
 		},
 		sections = {

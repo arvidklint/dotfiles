@@ -7,8 +7,6 @@ function M.config()
 		command = ":Neoformat",
 		group = formatOnSave,
 	})
-
-	print("neoformat config")
 end
 
 return M
