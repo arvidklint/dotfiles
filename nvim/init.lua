@@ -9,6 +9,7 @@ end
 
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
+local map = utils.map
 
 -- Bootstrap packer
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -170,6 +171,8 @@ packer.startup(function()
     end,
   }
 
+  use { 'sbdchd/neoformat', config = require('config.neoformat').config }
+
   if Packer_Bootstrap then
     require('packer').sync()
   end
@@ -258,7 +261,6 @@ vim.o.cmdheight = 2
 vim.o.cursorline = true -- highlight current line
 
 -- Mappings
-local map = utils.map
 
 -- Reload config
 map('n', '<leader>rc', ':lua require("config.utils").reload_config()<CR>')
