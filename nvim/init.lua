@@ -181,12 +181,14 @@ end)
 -- automatically remove trailing whitespace on save
 require('trim-whitespace')()
 
-vim.o.termguicolors = true
+local set = vim.opt
+
+set.termguicolors = true
 vim.g.everforest_background = 'hard'
 vim.g.everforest_sign_column_background = 'none'
 vim.g.everforest_ui_contrast = 'high'
 vim.g.everforest_show_eob = false
-vim.o.background = 'dark'
+set.background = 'dark'
 
 vim.g.gruvbox_contrast_dark = 'hard'
 
@@ -194,43 +196,30 @@ vim.g.tokyonight_style = 'night'
 
 cmd 'colorscheme tokyonight'
 
-vim.wo.number = true
--- vim.wo.relativenumber = true
+set.number = true
+-- set.relativenumber = true
 
-local opts_info = vim.api.nvim_get_all_options_info()
-local opt = setmetatable({}, {
-    __newindex = function(_, key, value)
-        vim.o[key] = value
-        local scope = opts_info[key].scope
-        if scope == "win" then
-            vim.wo[key] = value
-        elseif scope == "buf" then
-            vim.bo[key] = value
-        end
-    end
-})
+set.inccommand = 'nosplit'
+set.incsearch = true
+set.ignorecase = true -- Ignore case
+set.smartcase = true -- Don't ignore case with capitals
+set.wrapscan = true -- Search wraps at end of file
+set.scrolloff = 4 -- Lines of context
+set.wrap = false
 
-vim.o.inccommand = 'nosplit'
-vim.o.incsearch = true
-vim.o.ignorecase = true -- Ignore case
-vim.o.smartcase = true -- Don't ignore case with capitals
-vim.o.wrapscan = true -- Search wraps at end of file
-vim.o.scrolloff = 4 -- Lines of context
-vim.wo.wrap = false
+set.hidden = true -- Enable modified buffers in background
+set.splitbelow = true -- Put new windows below current
+set.splitright = true -- Put new windows right of currentset hidden
 
-vim.o.hidden = true -- Enable modified buffers in background
-vim.o.splitbelow = true -- Put new windows below current
-vim.o.splitright = true -- Put new windows right of currentset hidden
-
-vim.o.swapfile = false
-vim.o.backup = false
-vim.o.writebackup = false
+set.swapfile = false
+set.backup = false
+set.writebackup = false
 
 if fn.isdirectory(vim.o.undodir) == 0 then fn.mkdir(vim.o.undodir, "p") end
-vim.o.undofile = true -- Save undo history
-vim.o.confirm = true -- prompt to save before destructive actions
+set.undofile = true -- Save undo history
+set.confirm = true -- prompt to save before destructive actions
 
-vim.o.wildignore = utils.add_to_table {
+set.wildignore = utils.add_to_table {
     "*.aux,*.out,*.toc", "*.o,*.obj,*.dll,*.jar,*.pyc,*.rbc,*.class",
     "*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp",
     "*.avi,*.m4a,*.mp3,*.oga,*.ogg,*.wav,*.webm", "*.eot,*.otf,*.ttf,*.woff",
@@ -242,23 +231,23 @@ vim.o.wildignore = utils.add_to_table {
     "*.*~,*~ ", "*.swp,.lock,.DS_Store,._*,tags.lock"
 }
 
-opt.autoindent = true -- Allow filetype plugins and syntax highlighting
-opt.expandtab = true -- Use spaces instead of tabs
-opt.shiftwidth = 2 -- Size of an indent
-opt.smartindent = true -- Insert indents automatically
-opt.tabstop = 2 -- Number of spaces tabs count for
-opt.softtabstop = 2
--- vim.o.shiftround = true -- Round indent
-vim.o.joinspaces = false -- No double spaces with join after a dotset
+set.autoindent = true -- Allow filetype plugins and syntax highlighting
+set.expandtab = true -- Use spaces instead of tabs
+set.shiftwidth = 2 -- Size of an indent
+set.smartindent = true -- Insert indents automatically
+set.tabstop = 2 -- Number of spaces tabs count for
+set.softtabstop = 2
+-- set.shiftround = true -- Round indent
+set.joinspaces = false -- No double spaces with join after a dotset
 
-vim.o.clipboard = 'unnamedplus'
-vim.wo.signcolumn = 'yes'
+set.clipboard = 'unnamedplus'
+set.signcolumn = 'yes'
 
-vim.o.completeopt = 'menu,menuone,noselect' -- Completion options
-vim.o.pumheight = 10
+set.completeopt = 'menu,menuone,noselect' -- Completion options
+set.pumheight = 10
 
-vim.o.cmdheight = 2
-vim.o.cursorline = true -- highlight current line
+set.cmdheight = 2
+set.cursorline = true -- highlight current line
 
 -- Mappings
 
@@ -303,7 +292,7 @@ cmd(':command! Q q')
 cmd('au TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false}')
 
 -- cmd [[au CursorHold * :exec 'match Search /\V\<' . expand('<cword>') . '\>/']]
--- vim.o.updatetime=500
+-- set.updatetime=500
 
 -- Set filetypes
 cmd [[au BufNewFile,BufRead *.ts setlocal filetype=typescript]]

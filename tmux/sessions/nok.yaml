@@ -1,0 +1,34 @@
+session_name: nokflex
+start_directory: ~/nok
+windows:
+  - window_name: BACKEND
+    panes:
+      - shell_command:
+        - cd nokflex
+  - window_name: FRONTEND
+    panes:
+      - shell_command:
+        - cd nokflex-front
+  - window_name: SERVERS
+    layout: even-horizontal
+    panes:
+      - shell_command:
+        - cd nokflex
+        - nvm use
+        - . ./.docker/start.sh
+      - shell_command:
+        - cd nokflex-front
+        - nvm use
+        - npm run serve
+        focus: true
+  - window_name: LOGS
+    panes:
+      - shell_command:
+        - cd nokflex
+        - tail -f storage/logs/laravel.log
+  - window_name: TERMINAL
+    layout: even-horizontal
+    panes:
+      - shell_command: cd nokflex
+      - shell_command: cd nokflex-front
+
