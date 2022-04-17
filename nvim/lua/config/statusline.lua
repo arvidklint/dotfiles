@@ -1,3 +1,5 @@
+local gps = require("nvim-gps")
+
 local M = {}
 
 function M.config()
@@ -13,8 +15,12 @@ function M.config()
 				{
 					"filename",
 					file_status = true,
-					path = 1,
+					path = 0,
 					shorting_target = 40,
+				},
+				{
+					gps.get_location,
+					cond = gps.is_available,
 				},
 			},
 		},

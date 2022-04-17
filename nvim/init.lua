@@ -103,8 +103,16 @@ packer.startup(function()
 	})
 
 	use({
+		"SmiteshP/nvim-gps",
+		requires = "nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("nvim-gps").setup()
+		end,
+	})
+
+	use({
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { { "kyazdani42/nvim-web-devicons", opt = true }, { "SmiteshP/nvim-gps" } },
 		config = function()
 			require("config.statusline").config()
 		end,
