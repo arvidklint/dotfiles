@@ -126,7 +126,12 @@ packer.startup(function()
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 
-	use("tpope/vim-commentary")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
 	use({
 		"TimUntersberger/neogit",
