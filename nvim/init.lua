@@ -106,7 +106,7 @@ packer.startup(function()
 		"SmiteshP/nvim-gps",
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = function()
-			require("nvim-gps").setup()
+			require("config.gps").config()
 		end,
 	})
 
