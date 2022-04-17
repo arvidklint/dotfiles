@@ -129,10 +129,15 @@ packer.startup(function()
 	use("tpope/vim-commentary")
 
 	use({
-		"tpope/vim-fugitive",
+		"TimUntersberger/neogit",
+		requires = { { "nvim-lua/plenary.nvim" }, { "sindrets/diffview.nvim" } },
 		config = function()
-			require("config.fugitive")
+			require("config.neogit").config()
 		end,
+	})
+	use({
+		"sindrets/diffview.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
 	})
 
 	use({
