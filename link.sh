@@ -16,5 +16,8 @@ ln -sv ~/dotfiles/zsh/.zshrc ~/.zshrc
 mkdir ~/.config/alacritty
 ln -sv ~/dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
+mkdir ~/.config/kitty
+ln -sv ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+
 # Link all nvim files
 (cd ~/dotfiles/nvim && . ./install.sh)
