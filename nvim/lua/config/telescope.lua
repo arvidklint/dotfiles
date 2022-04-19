@@ -56,15 +56,14 @@ function M.setup()
 
 	utils.map("n", "<Leader>fb", "<cmd>lua __telescope_buffers()<CR>")
 	utils.map("n", "<C-p>", "<cmd>lua __telescope_files()<CR>")
-	utils.map("n", "<Leader><Leader>", "<cmd>lua __telescope_files()<CR>")
 	utils.map("n", "<Leader>ff", "<cmd>lua __telescope_files()<CR>")
 	utils.map("n", "<Leader>fg", "<cmd>lua __telescope_grep()<CR>")
 	utils.map("n", "<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags(options)<CR>")
 	utils.map("n", "<Leader>fc", "<cmd>lua __telescope_commits()<CR>")
 	utils.map("n", "<Leader>ft", "<cmd>lua __telescope_colorscheme()<CR>")
 	utils.map("n", "<C-f>", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
-	utils.map("n", "<Leader>fr", "<cmd>lua require('telescope.builtin').registers()<CR>")
-	utils.map("n", "<Leader>fy", "<cmd>lua require('telescope').extensions.neoclip['plus']()<CR>")
+	utils.map("n", "<C-y>", "<cmd>lua require('telescope').extensions.neoclip['plus']()<CR>")
+	utils.map("n", "<Leader><Leader>", "<cmd>lua require('telescope.builtin').resume()<CR>")
 end
 
 function M.config()
