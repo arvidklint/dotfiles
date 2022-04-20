@@ -168,12 +168,12 @@ packer.startup(function()
 
 	use("editorconfig/editorconfig-vim")
 
-  use({
-    "ggandor/leap.nvim",
-    config = function()
-      require('leap').set_default_keymaps()
-    end
-  })
+	use({
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").set_default_keymaps()
+		end,
+	})
 
 	use({
 		"folke/which-key.nvim",
