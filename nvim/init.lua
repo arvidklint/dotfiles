@@ -201,7 +201,19 @@ packer.startup(function()
 		end,
 	})
 
-	use({ "sbdchd/neoformat", config = require("config.neoformat").config })
+	use({
+		"sbdchd/neoformat",
+		config = function()
+			require("config.neoformat").config()
+		end,
+	})
+
+	-- use({
+	-- 	"~/dev/dazzle.nvim",
+	-- 	config = function()
+	-- 		require("dazzle").setup()
+	-- 	end,
+	-- })
 
 	if Packer_Bootstrap then
 		require("packer").sync()
