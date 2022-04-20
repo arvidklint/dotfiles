@@ -194,13 +194,6 @@ packer.startup(function()
 	})
 
 	use({
-		"mtth/scratch.vim",
-		config = function()
-			require("config.scratch").config()
-		end,
-	})
-
-	use({
 		"AckslD/nvim-neoclip.lua",
 		requires = { { "nvim-telescope/telescope.nvim" } },
 		config = function()
