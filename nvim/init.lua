@@ -1,3 +1,4 @@
+require("global")
 local utils = require("config.utils")
 
 vim.g.mapleader = " "
