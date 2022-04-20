@@ -14,6 +14,7 @@ alias ta='tmux attach-session -t'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 alias ts='tmuxp load'
+alias tn='tmux new -s'
 
 alias vim='nvim'
 alias vi='nvim'
