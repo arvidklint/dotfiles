@@ -167,13 +167,12 @@ packer.startup(function()
 
 	use("editorconfig/editorconfig-vim")
 
-	use({
-		"phaazon/hop.nvim",
-		as = "hop",
-		config = function()
-			require("config.hop").config()
-		end,
-	})
+  use({
+    "ggandor/leap.nvim",
+    config = function()
+      require('leap').set_default_keymaps()
+    end
+  })
 
 	use({
 		"folke/which-key.nvim",
