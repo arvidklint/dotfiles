@@ -25,6 +25,9 @@ alias n='nvim'
 alias gs='git status'
 alias gc='git checkout'
 
+# docker
+alias dsa='docker stop $(docker ps -q)' # stop all running docker containers
+
 export EDITOR='nvim'
 
 export TMUXP_CONFIGDIR=~/dotfiles/tmux/sessions/
