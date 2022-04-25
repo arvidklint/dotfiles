@@ -78,6 +78,7 @@ function M.config()
 					["<ESC>"] = actions.close,
 					["<C-j>"] = actions.move_selection_next,
 					["<C-k>"] = actions.move_selection_previous,
+					["<C-u>"] = false,
 				},
 			},
 			file_ignore_patterns = {
