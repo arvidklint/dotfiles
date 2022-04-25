@@ -71,7 +71,17 @@ packer.startup(function()
 		end,
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
+
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup({})
+		end,
+	})
+
 	use({ "tami5/lspsaga.nvim" })
+
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
