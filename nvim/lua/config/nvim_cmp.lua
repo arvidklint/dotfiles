@@ -19,6 +19,8 @@ function M.config()
 		mapping = {
 			["<C-j>"] = cmp.mapping.select_next_item(),
 			["<C-k>"] = cmp.mapping.select_prev_item(),
+			["<Down>"] = cmp.mapping.select_next_item(),
+			["<Up>"] = cmp.mapping.select_prev_item(),
 			["<CR>"] = cmp.mapping.confirm({
 				select = true,
 			}),
@@ -49,7 +51,7 @@ function M.config()
 			{ name = "nvim_lua" },
 			{ name = "nvim_lsp" },
 			{ name = "path" },
-			{ name = "buffer", keyword_length = 4 },
+			{ name = "buffer", keyword_length = 2 },
 		}),
 		formatting = {
 			format = require("lspkind").cmp_format(),
