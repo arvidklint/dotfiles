@@ -25,5 +25,8 @@ return {
         },
       }
     end,
+    keys = {
+      { "<c-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    },
   },
 }
