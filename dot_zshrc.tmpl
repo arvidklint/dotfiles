@@ -29,13 +29,17 @@ alias nf='nvim $(fzf --preview="bat {}")'
 
 export EDITOR='nvim'
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+{{- if eq .chezmoi.os "darwin"}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- end}}
 
+{{- if eq .chezmoi.os "linux"}}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(starship init zsh)" >> .zshrc
+{{- end}}
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # pnpm
 export PNPM_HOME="/home/arvid/.local/share/pnpm"
@@ -44,3 +48,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+eval "$(starship init zsh)"
