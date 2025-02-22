@@ -1,0 +1,7 @@
+theme = catppuccin-mocha
+
+font-family = "DejaVuSansMono Nerd Font Mono"
+font-size = 14
+
+window-padding-x = 8
+window-padding-y = 8
