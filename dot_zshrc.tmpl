@@ -27,6 +27,10 @@ alias d='lazydocker'
 alias n='nvim'
 alias nf='nvim $(fzf --preview="bat {}")'
 
+alias tn='tmux new-session -t'
+alias ta='tmux a -t'
+alias tk='tmux kill-session -t'
+
 export EDITOR='nvim'
 
 {{- if eq .chezmoi.os "darwin"}}
