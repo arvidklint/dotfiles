@@ -43,6 +43,9 @@ return {
         },
         grep = {
           cwd_prompt = true,
+          actions = {
+            ["ctrl-o"] = actions.file_vsplit,
+          },
         },
       }
     end,
