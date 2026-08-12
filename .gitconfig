@@ -1,0 +1,12 @@
+[gpg]
+	format = ssh
+[user]
+	signingkey = /home/arvid/.ssh/id_ed25519.pub
+	name = Arvid Klint
+	email = arvidklint@icloud.com
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
